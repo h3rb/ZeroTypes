@@ -1,4 +1,4 @@
-ZeroTypes Library
+ZeroTypes Library for Visual C++
 ---------------
 
 __ZeroTypes Library__ is a personal helper library written for Visual C++ which performs rudimentary and important initialization of C-types (POD or plain-old data types) for Win32 and x64 systems.
@@ -8,6 +8,13 @@ I've been adding things to this library since 2006, but some of the functions ha
 ZeroTypes saves you the trouble of initializing types in the class constructor, provides useful insight into what you would need to, say, compare strings by using operator overloads, and implements two distinct pointer handlers (Zero-Pointer and Zero-Disposable-Pointer).
 
 No need for BOOST BLOAT!  DIY and DRY
+
+
+To Do:
+======
+# Implement 64-bit version
+# Make more Linux-friendly
+
 
 BSD LICENSE!!!  Credit due, but otherwise, free and clear for commercial use.
 
