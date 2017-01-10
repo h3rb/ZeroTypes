@@ -10,10 +10,10 @@ ZeroTypes saves you the trouble of initializing types in the class constructor, 
 No need for BOOST BLOAT!  DIY and DRY
 
 
-To Do:
-======
-# Implement 64-bit version
-# Make more Linux-friendly
+__To Do:__
+
+* Implement 64-bit version
+* Make more Linux-friendly
 
 
 BSD LICENSE!!!  Credit due, but otherwise, free and clear for commercial use.
