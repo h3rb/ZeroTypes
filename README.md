@@ -27,7 +27,9 @@ Also included:
  - Nifty geometry helpers like distance and angle helpers for simple game AI
  - Utility functions galore
 
-Some contributions marked with other licenses or links to the tutorial it came from.  Two that come to mind are Sean O'Neil and the guy who implemented Base64.
+Some contributions marked with other licenses or links to the tutorial it came from.  Generally all were compatible with MIT or BSD, or were public domain.   
+
+Contributors: Makoto Matsumoto and Takuji Nishimura, Sean O'Neil, Ken Perlin, NVIDIA, Daniel White, Alan Paeth, René Nyffenegger, dhPoware, Emil Persson (Humus)
 
 Examples
 ========
