@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Indexed.cpp">
+      <Filter>Framework\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="ZeroTypes.cpp">
+      <Filter>Framework\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>Framework\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="ListItem.cpp">
+      <Filter>Framework\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="macros.cpp">
+      <Filter>Framework\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="moremath.cpp">
+      <Filter>Framework\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="string_functions.cpp">
+      <Filter>Framework\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="JSON.cpp">
+      <Filter>Framework\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="ZIndexed.cpp">
+      <Filter>Framework\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryFile.cpp">
+      <Filter>Framework\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Randoms.cpp">
+      <Filter>Framework\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="CDateTime.cpp">
+      <Filter>Framework\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryFileTest.cpp">
+      <Filter>Framework\Utility\Test Cases</Filter>
+    </ClCompile>
+    <ClCompile Include="Numbers.cpp">
+      <Filter>Framework\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Strings.cpp">
+      <Filter>Framework\Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Indexed.h">
+      <Filter>Framework\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="ZIndexed.h">
+      <Filter>Framework\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="ZeroTypes.h">
+      <Filter>Framework\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Framework\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="ListItem.h">
+      <Filter>Framework\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="macros.h">
+      <Filter>Framework\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="moremath.h">
+      <Filter>Framework\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Strings.h">
+      <Filter>Framework\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="string_functions.h">
+      <Filter>Framework\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="JSON.h">
+      <Filter>Framework\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryFile.h">
+      <Filter>Framework\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Randoms.h">
+      <Filter>Framework\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="CDateTime.h">
+      <Filter>Framework\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryFileTest.h">
+      <Filter>Framework\Utility\Test Cases</Filter>
+    </ClInclude>
+    <ClInclude Include="Numbers.h">
+      <Filter>Framework\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{9c1ad6e6-811b-4e3e-88fc-c350c71861f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Utility">
+      <UniqueIdentifier>{afee2632-8665-4124-bdf4-4c5c7a176e27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Data Structures">
+      <UniqueIdentifier>{93679942-12a8-48d0-902f-69b1ec420d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lost and Found">
+      <UniqueIdentifier>{6954b265-a951-4c75-a7a2-6f6a3884da03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{2e50cfe1-82c3-4267-b518-0654088798d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Utility\Test Cases">
+      <UniqueIdentifier>{3d4badee-9702-4c5e-92ad-cea40f7ffdd8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LIBSETTING.props">
+      <Filter>Application</Filter>
+    </None>
+  </ItemGroup>
+</Project>
