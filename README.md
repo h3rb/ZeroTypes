@@ -9,6 +9,8 @@ I've been adding things to this library since 2006, but some of the functions ha
 
 ZeroTypes saves you the trouble of initializing types in the class constructor, provides useful insight into what you would need to, say, compare strings by using operator overloads, and implements two distinct pointer handlers (Zero-Pointer and Zero-Disposable-Pointer).
 
+ZeroTypes was rigorously tested and combed through using cppCheck (http://cppcheck.sourceforge.net/) - one of the most useful tools on the planet for C++ developers.
+
 No need for BOOST BLOAT!  DIY and DRY
 
 
