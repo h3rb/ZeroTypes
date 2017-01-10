@@ -1,0 +1,120 @@
+ZeroTypes Library
+---------------
+
+__ZeroTypes Library__ is a personal helper library written for Visual C++ which performs rudimentary and important initialization of C-types (POD or plain-old data types) for Win32 and x64 systems.
+
+I've been adding things to this library since 2006, but some of the functions harken back to 1993 when I first started writing C code.  All in one place.  Very helpful for newcomers who want to start a big project in C++, or for old-timers who want to have a nicer day of C++ coding.
+
+ZeroTypes saves you the trouble of initializing types in the class constructor, provides useful insight into what you would need to, say, compare strings by using operator overloads, and implements two distinct pointer handlers (Zero-Pointer and Zero-Disposable-Pointer).
+
+No need for BOOST BLOAT!  DIY and DRY
+
+BSD LICENSE!!!  Credit due, but otherwise, free and clear for commercial use.
+
+Also included:
+
+ - Super deep random numbers library
+ - Random data generated from Atmospheric Data (Random.org)
+ - Extensive String manipulation functions
+ - Kewl Beans BinaryFile class
+ - Powerful optimized LinkedList class with MACROS for easy daily use
+ - Super-simple JSON reader/writer
+ - Awesome error code reading functions specifically for WinAPI
+
+Before ZeroTypes:
+
+```
+class A {
+ A() { x=0; }  // If you didn't do this, you would have problems
+ int x;
+};
+```
+
+After ZeroTypes:
+
+```
+class A {
+ Zint x;
+};
+```
+
+Much easier to write and read (humanly), yet it accomplishes the same thing.
+
+Pointers before ZeroTypes:
+
+```
+class A {
+ int *b;
+ int *temp;
+ A() { b=nullptr; temp=new int; }
+ ~A() { delete temp; }
+};
+```
+
+Pointers after ZeroTypes:
+
+```
+class A {
+ Zpointer<int> b;
+ Zdisposable<int> temp;
+ A() {
+  temp.Instantiate();
+ }
+ /* automatically destroys temp on destroy of A */
+};
+```
+
+You can also write using ZeroTypes shorthand:
+
+```
+class A {
+ Zp<int> b;
+ Zdis<int> temp;
+};
+```
+
+Strings before ZeroTypes:
+```
+class A {
+ std::string alpha,beta;
+ A() { alpha=string(""); beta=string("beta"); }
+ bool Compares() { return ( alpha.compare(beta) == 0 ); }
+};
+```
+
+Strings after ZeroTypes:
+
+```
+class A {
+ Zstring alpha,beta;
+ A() {}
+ bool Compares() { return alpha == beta; }
+};
+```
+
+Why use this over Boost?
+
+Well, it's lighter weight, specialized to only a handful of basic important types and their interoperability, and while powerful, Boost is bloat, and we are not bloat (sort-of).
+
+ZeroTypes implements the following classes:
+
+* Zint
+* Zbyte
+* Zuint
+* Zdouble
+* Zfloat
+* Zbool
+* Zstring
+
+ZeroTypes also comes with an optimized LinkedList base class and ListItem base class, and on top of these, there are helpers for sets of strings, which are folded into Zstring.
+
+* ListItem (implements RTTI)
+* LinkedList
+* String : ListItem
+* Strings : LinkedList
+
+Additionally, a two lightweight templates for handling one-or-two-dimensional arrays built around two slightly different philosophies:
+* Indexed
+* ZIndexed
+
+You also get a slough of string helper functions, super useful macros collected since 1992, and a deep sense of resentment for casting.  All implemented for Microsoft Visual Studio's kinda wonky interpretation of C++.
