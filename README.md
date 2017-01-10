@@ -66,7 +66,7 @@ class A {
  A() {
   temp.Instantiate();
  }
- /* automatically destroys temp on destroy of STL
+ /* automatically destroys temp on destroy of A's instance but not b */
 };
 ```
 
