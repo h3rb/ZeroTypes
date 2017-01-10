@@ -27,6 +27,11 @@ Also included:
  - Nifty geometry helpers like distance and angle helpers for simple game AI
  - Utility functions galore
 
+Some contributions marked with other licenses or links to the tutorial it came from.  Two that come to mind are Sean O'Neil and the guy who implemented Base64.
+
+Examples
+========
+
 Before ZeroTypes:
 
 ```
@@ -118,6 +123,9 @@ ZeroTypes also comes with an optimized LinkedList base class and ListItem base c
 * LinkedList
 * String : ListItem
 * Strings : LinkedList
+
+Include "Randoms.h" which implements a variety of different approaches, some original, some borrowed:
+
 * RandomSet : ListItem
 * RandomSets : LinkedList
 * Random : LinkedList
@@ -125,7 +133,6 @@ ZeroTypes also comes with an optimized LinkedList base class and ListItem base c
 
 Additionally, a lightweight template for handling one-or-two-dimensional arrays built to be fast, portable and powerful:
 * ZIndexed
-
 
 __To Do:__
 
