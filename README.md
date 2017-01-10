@@ -1,9 +1,11 @@
 ZeroTypes Library for Visual C++
 ---------------
+BSD LICENSE
+Credit due, but otherwise, free and clear for commercial use.
 
 Part of the Lost Astronaut Studios Game Creation Framework in use by http://lostastronaut.com
 
-__ZeroTypes Library__ is a personal helper library written for Visual C++ which performs rudimentary and important initialization of C-types (POD or plain-old data types) for Win32 and x64 systems.  It has been in development since 2007.  I wrote it to make my life easier.  It has, and now for the first time in 2017 it can make /your/ life easier /too/ -- AS SEEN ON http://HANDMADE.NETWORK
+__ZeroTypes Library__ is a personal helper library written for Visual C++ which performs rudimentary and important initialization of C-types (POD or plain-old data types) for Win32 and x64 systems.  It has been in development since 2007.  I wrote it to make my life easier.  It has, and now for the first time in 2017 it can make *your* life easier *too* -- AS SEEN ON http://HANDMADE.NETWORK
 
 I've been adding things to this library since 2006, but some of the functions harken back to 1993 when I first started writing C code.  All in one place.  Very helpful for newcomers who want to start a big project in C++, or for old-timers who want to have a nicer day of C++ coding.
 
@@ -11,19 +13,17 @@ ZeroTypes saves you the trouble of initializing types in the class constructor, 
 
 ZeroTypes was rigorously tested and combed through using cppCheck (http://cppcheck.sourceforge.net/) - one of the most useful tools on the planet for C++ developers.
 
-No need for BOOST BLOAT!  DIY and DRY
-
-BSD LICENSE!!!  Credit due, but otherwise, free and clear for commercial use.
-
 Also included:
 
  - Super deep random numbers library
- - Random data generated from Atmospheric Data (Random.org)
+ - Random data generated from Atmospheric Data (Random.org), pseudorandoms and uniform() randoms
  - Extensive String manipulation functions
  - Kewl Beans BinaryFile class
  - Powerful optimized LinkedList class with MACROS for easy daily use
  - Super-simple JSON reader/writer
  - Awesome error code reading functions specifically for WinAPI
+ - Nifty geometry helpers like distance and angle helpers for simple game AI
+ - Utility functions galore
 
 Before ZeroTypes:
 
@@ -64,7 +64,7 @@ class A {
  A() {
   temp.Instantiate();
  }
- /* automatically destroys temp on destroy of A */
+ /* automatically destroys temp on destroy of STL
 };
 ```
 
@@ -96,7 +96,7 @@ class A {
 };
 ```
 
-Why use this over Boost?
+No need for BOOST BLOAT!  DIY and DRY - Why use this over Boost or STL?
 
 Well, it's lighter weight, specialized to only a handful of basic important types and their interoperability, and while powerful, Boost is bloat, and we are not bloat (sort-of).  Hey, you can use this WITH BOOST if you want.  No one is stopping you.
 
@@ -116,15 +116,18 @@ ZeroTypes also comes with an optimized LinkedList base class and ListItem base c
 * LinkedList
 * String : ListItem
 * Strings : LinkedList
+* RandomSet : ListItem
+* RandomSets : LinkedList
+* Random : LinkedList
+* Randoms : LinkedList
 
 Additionally, a lightweight template for handling one-or-two-dimensional arrays built to be fast, portable and powerful:
 * ZIndexed
 
-Project TODO
-
-Some of the code works on Linux. With a few changes, it will work on x64.  I'll get to this, or maybe you can by submitting a pull request on the github
 
 __To Do:__
+
+Some of the code works on Linux. With a few changes, it will work on x64.  I'll get to this, or maybe you can by submitting a pull request on the github
 
 * Implement 64-bit version
 * Make more Linux-friendly
