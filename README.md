@@ -13,13 +13,6 @@ ZeroTypes was rigorously tested and combed through using cppCheck (http://cppche
 
 No need for BOOST BLOAT!  DIY and DRY
 
-
-__To Do:__
-
-* Implement 64-bit version
-* Make more Linux-friendly
-
-
 BSD LICENSE!!!  Credit due, but otherwise, free and clear for commercial use.
 
 Also included:
@@ -124,8 +117,16 @@ ZeroTypes also comes with an optimized LinkedList base class and ListItem base c
 * String : ListItem
 * Strings : LinkedList
 
-Additionally, a two lightweight templates for handling one-or-two-dimensional arrays built around two slightly different philosophies:
-* Indexed
+Additionally, a lightweight template for handling one-or-two-dimensional arrays built to be fast, portable and powerful:
 * ZIndexed
+
+Project TODO
+
+Some of the code works on Linux. With a few changes, it will work on x64.  I'll get to this, or maybe you can by submitting a pull request on the github
+
+__To Do:__
+
+* Implement 64-bit version
+* Make more Linux-friendly
 
 You also get a slough of string helper functions, super useful macros collected since 1992, and a deep sense of resentment for casting.  All implemented for Microsoft Visual Studio's kinda wonky interpretation of C++.  Maybe one day I'll write documentation for all of this, but for now, my best advice is to read the code!
