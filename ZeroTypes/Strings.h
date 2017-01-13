@@ -61,7 +61,7 @@ public:
   s = string(k);
   prev=next=null;
  }
- char *c_str(void); // converts the node to a C-str
+ const char *c_str(void); // converts the node to a C-str
  virtual ListItem *Copy() {
   return (ListItem *) new String( this );
  }
