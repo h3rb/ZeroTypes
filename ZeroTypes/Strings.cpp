@@ -15,8 +15,8 @@
 
 // String
 
-char *String::c_str() {
- return (char *) this->s.c_str();
+const char *String::c_str() {
+ return this->s.c_str();
 }
 
 // Strings
