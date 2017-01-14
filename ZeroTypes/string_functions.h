@@ -132,8 +132,8 @@ string paragraph( const char *oldstring, const char *prefix, int width, bool fEn
 char *replace_string( const char *orig, const char *old, const char *n );
 void replace_char( char *orig, char old, char n);
 int words( const char *argument );
-char * string_unpad( const char * argument );
-char * string_proper( char * argument );
+const char * string_unpad( const char * argument );
+const char * string_proper( char * argument );
 inline bool is_digit( char c );
 bool is_integer( const char *arg );
 bool is_decimal( const char *arg );
