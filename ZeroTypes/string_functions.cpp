@@ -1037,41 +1037,31 @@ int words(const char *argument )
 }
 
 /*
- * Returns a string with one space between each argument.  NOT SAFE
+ * Returns a string with one space between each argument. 
  */
-char * string_unpad( const char * argument )
+const char * string_unpad( const char * argument )
 {
- static char buf[STRING_SIZE];
- char *s = (char *) argument;
- char *d = buf;
- while ( *s == ' ' ) s++;
- FORMAT(buf,STRING_SIZE,"%s",s);
- d = buf;
- if ( *d != '\0' ) {
-  while ( *d != '\0' ) d++;
-  d--;
-  while( *d == ' ' ) d--;
-  d++;
-  *d = '\0';
- }
- return( buf );
+ static Zstring a(argument);
+ a.Trim();
+ return a.value.c_str();
 }
 
 /*
  * First char is capital, the rest is lowercase or something
  * to that effect.  Similar to ucfirst() from PHP
  */
-char * string_proper( char * argument )
+const char * string_proper( const char * argument )
 {
- char *s;
- s = argument;
- while ( *s != '\0' ) {
-  if ( *s != ' ' ) {
-   *s = UPPER(*s);
-   while ( *s != ' ' && *s != '\0' ) s++;
-  } else s++;
+ static Zstring a(argument);
+ const char *p=a.c_str();
+ static Zstring out;
+ while ( *p == ' ' ) p++;
+ if ( *p != '\0' ) { out+=UPPER(*p); p++; }
+ while ( *p != '\0' ) {
+  out+=(*p);
+  p++;
  }
- return argument;
+ return out.c_str();
 }
 
 inline bool is_digit( char c ) {
