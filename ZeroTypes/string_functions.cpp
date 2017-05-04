@@ -273,6 +273,7 @@ static void OpenConsole()
     std::ios::sync_with_stdio();
 }
 
+#if defined(DEBUG) || defined(DEBUG_OUTPUT) || defined(OPTIONAL_LOGGING_TO_FILE)
 void OUTPUT(const char * fmt, ...) {
 #if defined(USE_PTHREADS)
  pthreads.Lock();
@@ -309,6 +310,9 @@ void OUTPUT(const char * fmt, ...) {
  pthreads.Unlock();
 #endif
 }
+#else
+#define OUTPUT(...)   {}
+#endif
 
 void OUTPUTLong( string fmt, string value, char bookends ) {
 #if defined(USE_PTHREADS)
