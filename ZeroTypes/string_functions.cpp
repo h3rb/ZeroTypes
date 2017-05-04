@@ -311,7 +311,6 @@ void OUTPUT(const char * fmt, ...) {
 #endif
 }
 #else
-#define OUTPUT(...)   {}
 #endif
 
 void OUTPUTLong( string fmt, string value, char bookends ) {
