@@ -77,7 +77,11 @@ void trim( string *toworkon );
 void OutputLogString( const char *output, size_t length );
 void OUTPUTSTRING( string buf );
 void OUTPUTSTRING(const char * buf);
+#if defined(DEBUG) || defined(DEBUG_OUTPUT) || defined(OPTIONAL_LOGGING_TO_FILE)
 void OUTPUT(const char *fmt, ... );
+#else
+#define OUTPUT(...)   {}
+#endif
 void OUTPUTLong( string fmt, string value, char bookends );
 
 // Formats a string
