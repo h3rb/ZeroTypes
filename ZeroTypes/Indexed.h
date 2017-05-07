@@ -11,6 +11,9 @@
 #include "macros.h"
 #include "string_functions.h"
 
+#pragma warning( push )
+#pragma warning( disable : 4101 )
+
 // Lightweight vector.
 
 template<class T>
@@ -253,5 +256,7 @@ public:
   if ( list ) delete[] list;
  }
 };
+
+#pragma warning( pop )
 
 void Indexed_Rigorous_Test();
