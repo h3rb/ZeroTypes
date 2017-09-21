@@ -6,7 +6,9 @@
  * parties who have been granted such permission by its author, Herbert Elwood Gilliland III   *
  ***********************************************************************************************
  * Copyright (c) 2010 Herbert Elwood Gilliland III ; All rights reserved.                      *
- ***********************************************************************************************/
+ ***********************************************************************************************
+ * BSD LICENSE - See accompanying "License.txt" for details.                                   *
+ ***********************************************************************************************//
 
 #include "macros.h"
 #include "ListItem.h"
