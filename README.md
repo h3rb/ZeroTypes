@@ -141,7 +141,7 @@ __To Do:__
 
 Some of the code works on Linux. With a few changes, it will work on x64.  I'll get to this, or maybe you can by submitting a pull request on the github
 
-* Implement 64-bit version
 * Make more Linux-friendly
+* Make more Mac-friendly
 
 You also get a slough of string helper functions, super useful macros collected since 1992, and a deep sense of resentment for casting.  All implemented for Microsoft Visual Studio's kinda wonky interpretation of C++.  Maybe one day I'll write documentation for all of this, but for now, my best advice is to read the code!
