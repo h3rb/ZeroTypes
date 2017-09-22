@@ -1,7 +1,8 @@
 /*
 
  ZeroTypes Library
- Open source license: BSD 4-clause
+ Open source license: BSD 
+ (See accompanying License.txt for details)d
 
  Author: H. Elwood Gilliland III
  Copyright (c) 2007-2017
