@@ -2,6 +2,7 @@ ZeroTypes Library for Visual C++
 ---------------
 BSD LICENSE
 Credit due, but otherwise, free and clear for commercial use.
+See License.txt for details.
 
 ![alt tag](https://raw.githubusercontent.com/h3rb/ZeroTypes/master/zero.png)
 
