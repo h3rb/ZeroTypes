@@ -5,6 +5,19 @@ means you cannot remove copyright notices
 
 https://en.wikipedia.org/wiki/BSD_licenses
 https://opensource.org/licenses/BSD-3-Clause
+
+IF you choose to take pieces of this library, to merge it with your own code, please mark those sections with the following copyright notice (minimized for clarity and to keep code uncluttered), otherwise please leave existing files marked as they are.  You may also add your own notices to cover your modifications and derivations.
+
+// From the ZeroTypes Library (BSD License) http://github.com/h3rb/ZeroTypes
+
+or
+
+// Based on ZeroTypes Library (BSD License) http://github.com/h3rb/ZeroTypes
+
+or
+
+// From ZeroTypes Library http://github.com/h3rb/ZeroTypes
+
 ...
 
 
