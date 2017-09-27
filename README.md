@@ -161,7 +161,7 @@ Include "Randoms.h" which implements a variety of different approaches, some ori
 * Random : LinkedList
 * Randoms : LinkedList
 
-Additionally, a lightweight template for handling one-or-two-dimensional arrays built to be fast, portable and powerful:
+Additionally, a lightweight template for handling one-or-two-dimensional arrays built to be fast, portable and extendable:
 * ZIndexed
 
 __To Do:__
