@@ -120,6 +120,34 @@ ZeroTypes implements the following classes:
 * Zbool
 * Zstring
 
+When should I use these?
+
+In class descriptions almost always, as "properties" -- usually never as a parameter.  You can also use them as globals.
+
+When should I cast these to their target data type?
+
+When you are passing a Z-POD to a function that has multiple prototypes, for example std::abs() which takes a double, int or float, it is best to overcome interoperability by casting to enforce strict typing, or use their .value property to get at the wrapped POD.
+
+Example:
+
+```
+class Foo {
+ Zint x;
+ void absolute_value_Ex1() {
+  return std::abs((double)x);
+ }
+ void absolute_value_Ex2() {
+  return std::abs(x.value);
+ }
+ void absolute_value_Ex3_compiler_error_in_ambiguity() {
+  return std::abs(x); 
+  /* How would the compiler know which "x" you want due to the interoperabilty enforced by cast overloading. */
+ }
+};
+```
+
+In some situations, 
+
 ZeroTypes also comes with an optimized LinkedList base class and ListItem base class, and on top of these, there are helpers for sets of strings, which are folded into Zstring.
 
 * ListItem (implements RTTI)
