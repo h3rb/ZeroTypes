@@ -110,7 +110,7 @@ No need for BOOST BLOAT!  DIY and DRY - Why use this over Boost or STL?
 
 Well, it's lighter weight, specialized to only a handful of basic important types and their interoperability, and while powerful, Boost is bloat, and we are not bloat (sort-of).  Hey, you can use this WITH BOOST if you want.  No one is stopping you.
 
-ZeroTypes implements the following classes:
+ZeroTypes implements the following Z-POD classes:
 
 * Zint
 * Zbyte
@@ -126,7 +126,7 @@ In class descriptions almost always, as "properties" -- usually never as a param
 
 When should I cast these to their target data type?
 
-When you are passing a Z-POD to a function that has multiple prototypes, for example std::abs() which takes a double, int or float, it is best to overcome interoperability by casting to enforce strict typing, or use their .value property to get at the wrapped POD.
+When you are passing a Z-POD to a function that has multiple prototypes, for example std::abs() which takes a double, int or float, it is best to overcome interoperability overload features of the Z-POD by casting to enforce strict typing, or use their .value property to get at the wrapped POD.
 
 Example:
 
