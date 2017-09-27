@@ -171,7 +171,12 @@ class Foo {
 
 Zpointer's .pointer caveat
 
-Generally it's a good idea to use a Zpointer's .pointer if you absolutely need the pointer.  There are some edge cases where Zpointer's pointer is accidentally substituted.  You'll know immediately if your code around there doesn't work. However, within itself, Zpointer works fine without the .pointer specificity.
+Generally it's a good idea to use a Zpointer's .pointer if you absolutely need the pointer.  There are some edge cases where Zpointer's pointer to the wrapper class instance is accidentally substituted (at least in Visual Studio).  You'll know immediately if your code around there doesn't work. However, within itself, Zpointer works fine without the .pointer specificity.  The same can be said for Zdisposable.  One example of this is the ! operator is sometimes misconstrued.  My speculation is that when you have a Zpointer pointer pointer.  See below.
+
+```
+if ( !m->preview ) { /* I think this works most of the time in Visual Studio, but sometimes I get concerned. */ }
+if ( m->preview.pointer != nullptr ) { /* this definitely works! */ }
+```
 
 ZeroTypes also comes with an optimized LinkedList base class and ListItem base class, and on top of these, there are helpers for sets of strings, which are folded into Zstring.
 
