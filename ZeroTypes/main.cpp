@@ -11,7 +11,10 @@
 #pragma once
 #pragma warning (disable:4100)
 
+
+#if defined(WIN32) || defined(WIN32_LEAN_AND_MEAN) || defined(WINVER)
 #include <Windows.h>
+#endif
 #include "main.h"
 
 #include "string_functions.h"
@@ -22,10 +25,14 @@
 
 // WINMAIN ////////////////////////////////////////////////
 
+#if defined(WIN32) || defined(WIN32_LEAN_AND_MEAN) || defined(WINVER)
 int WINAPI WinMain(_In_ HINSTANCE hinstance,
                    _In_opt_ HINSTANCE hprevinstance,
                    _In_ LPSTR lpCmdLine,
                    _In_ int ncmdshow)
+#else
+int main ( int argc, char **argv ) 
+#endif
 {
  InitWorkStrings();
  randoms.LoadRandomDotOrg("data/random.org/random-0.dat");  // I have 10 of these special files I made, pm me on handmade for the other 9
