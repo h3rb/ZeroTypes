@@ -128,7 +128,23 @@ You generally want to use them in situations where data will be eventually conve
 
 When should I cast these to their target data type?
 
-When you are passing a Z-POD to a function that has multiple prototypes, for example std::abs() which takes a double, int or float, it is best to overcome interoperability overload features of the Z-POD by casting to enforce strict typing, or use their .value property to get at the wrapped POD.
+When you are passing a Z-POD to a function that has multiple prototypes, for example std::abs() which takes a double, int or float, it is best to overcome interoperability overload features of the Z-POD by casting to enforce strict typing, or use their .value property to get at the wrapped POD.  A side effect of this necessary step is that you are certain, in situations where you are using ints and doubles together, for instance, that you are casting properly and getting the desired output data.  
+
+```
+// It's not always safe to assume one compiler to another,
+// in a cross-platform or multi-platform context, will
+// treat this:
+ int x=50.5;
+ double e=5.5*x;
+// the way you think it should... did you mean 50.0 X 5.5 or 5 * 50 or 51 * 5.5 or ...
+ int x=2;
+ double f=1.0/x; // might be 0.5
+ double g=1/x; // might be 0.0
+```
+
+This happens a lot when doing graphics applications as well as science applications.  So, the cast is useful not only to be explicit to the compiler, but also when you read it later you can double check your math against an "annotated" equation rather than a guessing game scenario.  It's also necessary when using printf() and other variable argument functions to be explicitly a POD type, so always cast your Zint and Zdouble to the desired format specifier (like %L or %f, which are sadly also platform specific).
+
+There is also the matter of ambiguity, which is generally why I tend to avoid Zints and Zdoubles as function or method function parameters.  If I do end up using one as a last resort, I make sure to use a reference (unless a pointer is necessary), but rarely as a "copy" op, though it's not clear if that makes much of a difference.  When there is no ambiguity, the compiler will correctly find the right overload.
 
 Example of type ambiguity as an artifact of using ZeroType POD-non-POD classes:
 
@@ -141,11 +157,15 @@ class Foo {
  void absolute_value_Ex2() {
   return std::abs(x.value);
  }
- void absolute_value_Ex3_compiler_error_in_ambiguity() {
+ double absolute_value_Ex3_compiler_error_in_ambiguity() {
   return std::abs(x); 
   /* How would the compiler know which "x" you want due 
-  to the interoperability features of Zint's cast overloading? */
+  to the interoperability features of Zint's cast overloading?
+  If you're lucky, it will pick double, but you can't be too sure...
+  The fix for this is in example Ex1. */
  }
+ void my_abs(int i) { return std::abs(i); }
+ int absolute_value_Ex4_works_fine_no_ambiguity() { return my_abs(x); }
 };
 ```
 
