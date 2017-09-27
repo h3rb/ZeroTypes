@@ -141,7 +141,8 @@ class Foo {
  }
  void absolute_value_Ex3_compiler_error_in_ambiguity() {
   return std::abs(x); 
-  /* How would the compiler know which "x" you want due to the interoperabilty features of Zint's cast overloading? */
+  /* How would the compiler know which "x" you want due 
+  to the interoperability features of Zint's cast overloading? */
  }
 };
 ```
