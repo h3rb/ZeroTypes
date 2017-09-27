@@ -130,6 +130,7 @@ When should I cast these to their target data type?
 
 When you are passing a Z-POD to a function that has multiple prototypes, for example std::abs() which takes a double, int or float, it is best to overcome interoperability overload features of the Z-POD by casting to enforce strict typing, or use their .value property to get at the wrapped POD.  A side effect of this necessary step is that you are certain, in situations where you are using ints and doubles together, for instance, that you are casting properly and getting the desired output data.  
 
+Consider:
 ```
 // It's not always safe to assume one compiler to another,
 // in a cross-platform or multi-platform context, will
