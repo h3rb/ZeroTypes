@@ -128,7 +128,7 @@ When should I cast these to their target data type?
 
 When you are passing a Z-POD to a function that has multiple prototypes, for example std::abs() which takes a double, int or float, it is best to overcome interoperability overload features of the Z-POD by casting to enforce strict typing, or use their .value property to get at the wrapped POD.
 
-Example:
+Example of type ambiguity as an artifact of using ZeroType POD-non-POD classes:
 
 ```
 class Foo {
@@ -146,8 +146,6 @@ class Foo {
  }
 };
 ```
-
-In some situations, 
 
 ZeroTypes also comes with an optimized LinkedList base class and ListItem base class, and on top of these, there are helpers for sets of strings, which are folded into Zstring.
 
