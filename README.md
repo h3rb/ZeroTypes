@@ -122,7 +122,7 @@ ZeroTypes implements the following Z-POD classes:
 
 When should I use these?
 
-In class descriptions almost always, as "properties" -- usually never as a parameter.  You can also use them as globals.
+In class descriptions almost always, as "properties" -- usually never as a parameter.  You can also use them as globals.  You generally want to use them in situations where data will be eventually converted to a string.  I wrote them for use in OpenGL graphics applications, games and gaming servers (on Linux).  It is designed to assure you have initialized values, and optimizers will eliminate any "double initialization" woes you may feel you'll face.  You can type less, write more uniform implementations, and easily store and retrieve state from a string in memory or file - operations that are common in applications that require reading and writing files and states - or if you want to easily port your code with minimal syntax changes to Processing.org IDE or Javascript by simply removing the "Z" it will generally be similar to Java (Find/Replace to translate).  Also, I have sometimes converted PHP code quite easily back to C++ and visa versa using ZeroTypes snippets to help form my code, without losing performance and increasing application stability on the C++ side.
 
 When should I cast these to their target data type?
 
