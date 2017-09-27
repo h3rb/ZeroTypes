@@ -8,7 +8,10 @@
  Copyright (c) 2007-2017
 
 */
+
+#if defined(WIN32) || defined(WIN64) || defined(WINDOWS_LEAN_AND_MEAN) || defined(WINVER)
 #include <Windows.h> // for OutputDebugString
+#endif
 
 #include "string_functions.h"
 #include "moremath.h"
@@ -75,7 +78,7 @@ void backup_text_file( const char *fn_to_back_up ) {
 
 
 bool make_folder( const char *targetPath ) {
-#if defined(WIN32) 
+#if defined(WIN32) || defined(WIN64) || defined(WIN32_LEAN_AND_MEAN) || defined(WINVER)
  // Prepare string for use with FindFile functions.  First, copy the
  // string to a buffer, then append '\*' to the directory name.
  char path[MAX_PATH+1];
@@ -232,11 +235,15 @@ void OutputLogString( const char *output, size_t length ) {
 }
 
 void OUTPUTSTRING( string buf ) {
+#if defined(WIN32) || defined(WIN32_LEAN_AND_MEAN) || defined(WINVER)
  OutputDebugString(TEXT(buf.c_str()));
+#endif
 }
 
 void OUTPUTSTRING(const char * buf) {
+#if defined(WIN32) || defined(WIN32_LEAN_AND_MEAN) || defined(WINVER)
  OutputDebugString(TEXT(buf));
+#endif
 }
 
 bool log_OUTPUT_to_file = false;
@@ -276,6 +283,7 @@ static void OpenConsole()
 
 #if defined(DEBUG) || defined(DEBUG_OUTPUT) || defined(OPTIONAL_LOGGING_TO_FILE)
 void OUTPUT(const char * fmt, ...) {
+#if defined(WIN32) || defined(WIN32_LEAN_AND_MEAN) || defined(WINVER)
 #if defined(USE_PTHREADS)
  pthreads.Lock();
 #endif
@@ -310,11 +318,13 @@ void OUTPUT(const char * fmt, ...) {
 #if defined(USE_PTHREADS)
  pthreads.Unlock();
 #endif
+#endif
 }
 #else
 #endif
 
 void OUTPUTLong( string fmt, string value, char bookends ) {
+#if defined(WIN32) || defined(WIN32_LEAN_AND_MEAN) || defined(WINVER)
 #if defined(USE_PTHREADS)
  pthreads.Lock();
 #endif
@@ -333,6 +343,7 @@ void OUTPUTLong( string fmt, string value, char bookends ) {
  pthreads.Unlock();
 #endif
  OutputDebugString(TEXT((char *)out.c_str()));
+#endif
 #endif
 }
 
@@ -396,6 +407,7 @@ string FORMAT(const char*fmt, ...) {
  return s;
 }
 
+#if defined(WIN32) || defined(WIN32_LEAN_AND_MEAN) || defined(WINVER)
 #if defined(MSVC2013)
 string FMT(const string &fmt, ...) {
  pthreads.Lock();
@@ -407,6 +419,7 @@ string FMT(const string &fmt, ...) {
  pthreads.Unlock();
  return result;
 }
+#endif
 #endif
 
 // to be converted into a new format
@@ -1881,6 +1894,7 @@ bool str_infix_case( const char *astr, const char *bstr ) {
  }
  return !found;
 }
+
 bool string_infix( string astr, string bstr ) {
  string a=string(astr); std::transform(a.begin(), a.end(), a.begin(),(int(*)(int)) std::tolower);
  string b=string(bstr); std::transform(b.begin(), b.end(), b.begin(),(int(*)(int)) std::tolower);
