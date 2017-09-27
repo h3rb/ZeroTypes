@@ -169,6 +169,10 @@ class Foo {
 };
 ```
 
+Zpointer's .pointer caveat
+
+Generally it's a good idea to use a Zpointer's .pointer if you absolutely need the pointer.  There are some edge cases where Zpointer's pointer is accidentally substituted.  You'll know immediately if your code around there doesn't work. However, within itself, Zpointer works fine without the .pointer specificity.
+
 ZeroTypes also comes with an optimized LinkedList base class and ListItem base class, and on top of these, there are helpers for sets of strings, which are folded into Zstring.
 
 * ListItem (implements RTTI)
