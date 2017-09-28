@@ -122,9 +122,23 @@ ZeroTypes implements the following Z-POD classes:
 
 When should I use these?
 
-In class descriptions almost always, as "properties" -- usually not as a parameter unless that is your prerogative.  You can also use them as globals.  
+In class descriptions almost always, as "properties" -- 
 
-You generally want to use them in situations where data will be eventually converted to or from a string input.  I wrote them for use in OpenGL graphics applications, games and gaming servers (on Linux).  It is designed to assure you have initialized values, and optimizers will eliminate any "double initialization" woes you may feel you'll face.  You can type less, write more uniform implementations, and easily store and retrieve state from a string in memory or file - operations that are common in applications that require reading and writing files and states - or if you want to easily port your code with minimal syntax changes to Processing.org IDE or Javascript by simply removing the "Z" it will generally be similar to Java (Find/Replace to translate).  Also, I have sometimes converted PHP code quite easily back to C++ and visa versa using ZeroTypes snippets to help form my code, without losing performance and increasing application stability on the C++ side.
+Usually not as a parameter unless the case is a pointer or reference to something you are going to modify, but since they are POD-types, usually they are already wrapped in a class and won't be used directly as a parameter.  Or, they are POD-types are you will be return a non-pod type.
+
+Never as a return value.
+
+You can also use them as globals, though it is often not necessary to do so.
+
+You can use them as a local variable, but generally it can be avoided and should be when no value is provided, for the Z-pod types, though Zpointer locals often make sense.
+
+You generally want to use them in situations where data will be eventually converted to or from a string input.  I originally wrote them for use in OpenGL graphics applications, games and gaming servers (on Linux).  Using them protects against compiler inconsistencies across multiple platforms. Z-pods is designed to assure you have initialized values, and optimizers will eliminate any "double initialization" woes you may feel you'll face, in the case you wish to provide a default anyway.  
+
+Using Z-pods, you can type less, write more uniform implementations avoiding uninitialized class pointers, and you can even get out of having to create a constructor, for instance in the case where you wish to "pass down" a virtual constructor to a child class.
+
+Due to the built-in string/data translation, easily store and retrieve state from a string in memory or file - operations that are common in applications that require reading and writing files and states.  It also makes std::string operability function more like Java string concatenations, and helps you avoid relying on << chaining (useful only in C++ and C#, not in Java, Javascript or PHP), and of course avoiding the whole printf() thing to format a string (unless you like this).  
+
+If you want to easily port your code with minimal syntax changes to Processing.org IDE or Javascript by simply removing the "Z" it will generally be similar to Java (Find/Replace to translate).  Also, I have sometimes converted PHP code quite easily back to C++ and visa versa using ZeroTypes snippets to help form my code, without losing performance and increasing application stability on the C++ side, however this is only truly realized in value when you are using the LinkedList, Strings and Zstring classes, which have functionality that mimics common language features of both.
 
 When should I cast these to their target data type?
 
@@ -167,22 +181,28 @@ class Foo {
  }
  void my_abs(int i) { return std::abs(i); }
  int absolute_value_Ex4_works_fine_no_ambiguity() { return my_abs(x); }
+ void my_abs(char c, int i) { cout << c; return std::abs(i); }
+ int absolute_value_Ex5_works_fine_no_ambiguity() { return my_abs('y',x); }
 };
 ```
 
 Zpointer's .pointer caveat
 
-Generally it's a good idea to use a Zpointer's .pointer if you absolutely need the pointer.  There are some edge cases where Zpointer's pointer to the wrapper class instance is accidentally substituted (at least in Visual Studio).  You'll know immediately if your code around there doesn't work. However, within itself, Zpointer works fine without the .pointer specificity.  The same can be said for Zdisposable.  One example of this is the ! operator is sometimes misconstrued.  My speculation is that when you have a Zpointer pointer pointer.  See below.
+Generally it's a good idea to use a Zpointer's .pointer if you absolutely need the pointer.  There are some edge cases where Zpointer's pointer to the wrapper class instance is accidentally substituted (at least in Visual Studio).  You'll know immediately if your code around there doesn't work. However, within itself, Zpointer works fine without the .pointer specificity.  The same can be said for Zdisposable.  One example of this is the ! operator is sometimes misconstrued.  My speculation is that when you have a Zpointer pointer pointer.  See below., where "m" and "preview" and "n" and "preview" are all Zpointers.
 
 ```
 m->preview = n->preview;  // This always works if both preview properties are Zp<SameClass>
+if ( !m ) { /* always works */ }
 if ( !m->preview ) {
  /* I think this works most of the time in Visual Studio, 
-    but sometimes I get concerned. */
+    but sometimes it defaults to true because it's checking 
+    if m's "Zpointer" has a value rather than its pointer's Zpointer. 
+    There is no good reason for this, it's an error in Microsoft's
+    compiler/debugger as it is inconsistent.  Reports to them
+    have gone without response or action. */
 }
-if ( m->preview.pointer != nullptr ) {
- /* this definitely works! */
-}
+if ( !m->preview.pointer ) { /* this definitely works! */ }
+if ( m->preview.pointer != nullptr ) { /* this definitely works! */ }
 ```
 
 ZeroTypes also comes with an optimized LinkedList base class and ListItem base class, and on top of these, there are helpers for sets of strings, which are folded into Zstring.
