@@ -138,10 +138,19 @@ Usually not as a parameter unless the case is a pointer or reference to somethin
 ```c++
 // Don't do this unless you really want to:
 void functionname( Zint foo );
+
 // It's better to do this, because Z-pods were designed to be POD-helpers, rather than replacements:
 void functionname2( int foo );
 Zint myint;
 functioname2(myint);
+
+//I can imagine you may need to do this:
+void functionname3( Zint *out );
+// You could also do this instead:
+void functionname4( Zint &out );
+// Or just this:
+void functionname5( int *out );
+functioname5(&myint.value);
 ```
 
 Never as a return value, because there is no need to do so.  However, you may use them in a class or other structure that is a return value just fine.
