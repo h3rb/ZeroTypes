@@ -306,7 +306,7 @@ In C++:
 
 Consider:
 
-```
+```c++
 class A {
 public: A() { Init(); }
 virtual void Init() { cout << 'A'; }
@@ -324,7 +324,7 @@ The output of the above is "A" You might think "Well what if I had a couple of c
 So the value of such a constructor is very limited.  It only really provides initialization for the class itself.
 Almost always this kind of "default constructor" cannot be used in tandem with a virtual function to provide the expected result (or desired result).  In dynamic languages, like C# or eC, you can use a virtual function in a constructor without much issue.
 
-Since it has little utility, it can be avoided altogether, keeping the code cleaner.
+Since it has little utility, it can be avoided altogether, keeping the code cleaner, and avoiding the habit of falling into this trap, and all of the other traps like: https://stackoverflow.com/questions/3156597/override-or-remove-an-inherited-constructor
 
 __To Do:__
 
