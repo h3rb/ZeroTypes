@@ -222,6 +222,7 @@ Include "Randoms.h" which implements a variety of different approaches, some ori
 Additionally, a lightweight template for handling one-or-two-dimensional arrays built to be fast, portable and extendable:
 
 * ZIndexed
+
 Zindexed allows you to, through a template, reuse basic C arrays in place of std::vector and std:set -- when you need to have indexed data looked up easily.  Unlike vector or set, you can use ZIndexed to hold 2-dimensional arrays, and treat them as both linear and 2-dimensional without having to rewrite or reinvent the ```x+y*w``` conversion (and the even more esoteric backward-conversion from a linear value to a 2-d coordinate).  You can then use double-templating and triple-templating (et cetera) to extend the dimensionality beyond.  It also encourages the use of a for-loop iterator, which can be easily translated into other languages.
 
 In ZIndexed, Search, Delete and Insert operations are not handled in the template for you -- this is intentional as often these operations have additional requirements and reprocussions.  Normally, you have to write these specialized functions anyway when using an std::vector and std::set (or std::list, std::deque).  This could be done as a virtual, perhaps the class will evolve slightly more later, but for now it's designed intentionally to be done in the following way:
@@ -254,6 +255,7 @@ class Nodes : public ZIndexed<Node> {
 ```
 
 * StringIndexed
+
 A variant of ZIndexed which provides an extensible fast-hashing content-based lookup string hashed table.  Both PHP and Javascript have this feature built in, but C++ does not.
 
 __To Do:__
