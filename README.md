@@ -256,7 +256,7 @@ class Nodes : public ZIndexed<Node> {
 
 * StringIndexed
 
-A variant of ZIndexed which provides an extensible fast-hashing content-based lookup string hashed table.  Both PHP and Javascript have this feature built in, but C++ does not.
+A variant of ZIndexed which provides an extensible fast-hashing content-based lookup string hashed table.  Both PHP and Javascript have this feature built in, but C++ does not.  You could use a Map<> which is one common solution, or you could use this method.
 
 __To Do:__
 
