@@ -37,7 +37,7 @@ Examples
 
 Before ZeroTypes:
 
-```
+```c_cpp
 class A {
  A() { x=0; }  // If you didn't do this, you would have problems
  int x;
@@ -46,7 +46,7 @@ class A {
 
 After ZeroTypes:
 
-```
+```c_cpp
 class A {
  Zint x;
 };
@@ -56,7 +56,7 @@ Much easier to write and read (humanly), yet it accomplishes the same thing.
 
 Pointers before ZeroTypes:
 
-```
+```c_cpp
 class A {
  int *b;
  int *temp;
@@ -67,7 +67,7 @@ class A {
 
 Pointers after ZeroTypes:
 
-```
+```c_cpp
 class A {
  Zpointer<int> b;
  Zdisposable<int> temp;
@@ -80,7 +80,7 @@ class A {
 
 You can also write using ZeroTypes shorthand:
 
-```
+```c_cpp
 class A {
  Zp<int> b;
  Zdis<int> temp;
@@ -88,7 +88,7 @@ class A {
 ```
 
 Strings before ZeroTypes:
-```
+```c_cpp
 class A {
  std::string alpha,beta;
  A() { alpha=string(""); beta=string("beta"); }
@@ -98,7 +98,7 @@ class A {
 
 Strings after ZeroTypes:
 
-```
+```c_cpp
 class A {
  Zstring alpha,beta;
  A() {}
@@ -145,7 +145,7 @@ When should I cast these to their target data type?
 When you are passing a Z-POD to a function that has multiple prototypes, for example std::abs() which takes a double, int or float, it is best to overcome interoperability overload features of the Z-POD by casting to enforce strict typing, or use their .value property to get at the wrapped POD.  A side effect of this necessary step is that you are certain, in situations where you are using ints and doubles together, for instance, that you are casting properly and getting the desired output data.  
 
 Consider:
-```
+```c_cpp
 // It's not always safe to assume one compiler to another,
 // in a cross-platform or multi-platform context, will
 // treat this:
@@ -163,7 +163,7 @@ There is also the matter of ambiguity, which is generally why I tend to avoid Zi
 
 Example of type ambiguity as an artifact of using ZeroType POD-non-POD classes:
 
-```
+```c_cpp
 class Foo {
  Zint x;
  void absolute_value_Ex1() {
@@ -190,7 +190,7 @@ Zpointer's .pointer caveat
 
 Generally it's a good idea to use a Zpointer's .pointer if you absolutely need the pointer.  There are some edge cases where Zpointer's pointer to the wrapper class instance is accidentally substituted (at least in Visual Studio).  You'll know immediately if your code around there doesn't work. However, within itself, Zpointer works fine without the .pointer specificity.  The same can be said for Zdisposable.  One example of this is the ! operator is sometimes misconstrued.  My speculation is that when you have a Zpointer pointer pointer.  See below., where "m" and "preview" and "n" and "preview" are all Zpointers.
 
-```
+```c_cpp
 m->preview = n->preview;  // This always works if both preview properties are Zp<SameClass>
 if ( !m ) { /* always works */ }
 if ( !m->preview ) {
@@ -227,7 +227,7 @@ Zindexed allows you to, through a template, reuse basic C arrays in place of std
 
 In ZIndexed, Search, Delete and Insert operations are not handled in the template for you -- this is intentional as often these operations have additional requirements and reprocussions.  Normally, you have to write these specialized functions anyway when using an std::vector and std::set (or std::list, std::deque).  This could be done as a virtual, perhaps the class will evolve slightly more later, but for now it's designed intentionally to be done in the following way:
 
-```
+```c_cpp
 class Node { public: Zint value; Zstring name; operator =(Node &in){ value=in.value; name=in.name; } };
 class Nodes : public ZIndexed<Node> {
  void Insert( int before, Node &input ) {
