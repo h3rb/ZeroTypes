@@ -328,6 +328,8 @@ Almost always this kind of "default constructor" cannot be used in tandem with a
 
 Since it has little utility, it can be avoided altogether, keeping the code cleaner, and avoiding the habit of falling into this trap, and all of the other traps like: https://stackoverflow.com/questions/3156597/override-or-remove-an-inherited-constructor
 
+You won't be able to avoid them entirely, but at least you will only use them when you have to, decreasing your effort put in to a C++ language feature that has very little utility.
+
 __To Do:__
 
 Some of the code works on Linux. With a few changes, it will work on x64.  I'll get to this, or maybe you can by submitting a pull request on the github
