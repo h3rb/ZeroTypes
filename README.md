@@ -304,7 +304,7 @@ In C++ you sometimes need the features of other languages, but don't have them a
 In C++:
 * Constructors cannot be virtual.
 * Default constructors (constructors declared in the parent and not the child in the simplest form with no parameters) are special.
-* Constructors can call virtual functions, however the virtual functions are not called on the inherited function, as is the case in other languages like C# and eC.
+* Constructors can call virtual functions, however the virtual functions are not called on the inherited function, as is the case in other languages like C# and eC.  It will always call the version described in the base class.
 
 Consider:
 
