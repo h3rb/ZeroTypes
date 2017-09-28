@@ -328,7 +328,9 @@ Almost always this kind of "default constructor" cannot be used in tandem with a
 
 Since it has little utility, it can be avoided altogether, keeping the code cleaner, and avoiding the habit of falling into this trap, and all of the other traps like: https://stackoverflow.com/questions/3156597/override-or-remove-an-inherited-constructor
 
-You won't be able to avoid them entirely, but at least you will only use them when you have to, decreasing your effort put in to a C++ language feature that has very little utility.
+You won't be able to avoid them entirely, but at least you will only use them when you have to, like in a base class, or as simply an initializer, despite the fact that you may think you can do more with it, you can't.  Decreasing your effort put in to a C++ language feature that has very little utility is probably a good idea.
+
+When in doubt, ask Geordi http://www.eelis.net/geordi/
 
 __To Do:__
 
