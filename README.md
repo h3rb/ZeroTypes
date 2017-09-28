@@ -14,7 +14,9 @@ I've been adding things to the informal predecessor of this library since 2006, 
 
 ZeroTypes saves you the trouble of initializing types in the class constructor, provides useful insight into what you would need to, say, compare strings by using operator overloads, and implements two distinct pointer handlers (Zero-Pointer and Zero-Disposable-Pointer).
 
-ZeroTypes was rigorously tested and combed through using cppCheck (http://cppcheck.sourceforge.net/) - one of the most useful tools on the planet for C++ developers.
+ZeroTypes was rigorously tested and combed through using cppCheck (http://cppcheck.sourceforge.net/) - one of the most useful tools on the planet for C++ developers who make applications (not firmware).
+
+C++ is a generalized language that works on the lowest and highest levels.  For this reason, it has some specific annoyances that occur at the application and library level that are not as prevalent at the embedded or lowest level.  ZeroTypes solves problems for application developers by being an embeddable snippet providing utility saving time and grief.
 
 Also included:
 
