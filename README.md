@@ -124,17 +124,50 @@ When should I use these?
 
 In class descriptions almost always, as "properties" -- 
 
+```c++
+class MyClass {
+public:
+ Zint foo;
+ Zdouble bar;
+ Zbool baz;
+};
+```
+
 Usually not as a parameter unless the case is a pointer or reference to something you are going to modify, but since they are POD-types, usually they are already wrapped in a class and won't be used directly as a parameter.  Or, they are POD-types are you will be return a non-pod type.
 
-Never as a return value.
+```c++
+// Don't do this unless you really want to:
+void functionname( Zint foo );
+// It's better to do this, because Z-pods were designed to be POD-helpers, rather than replacements:
+void functionname2( int foo );
+Zint myint;
+functioname2(myint);
+```
+
+Never as a return value, because there is no need to do so.  However, you may use them in a class or other structure that is a return value just fine.
 
 You can also use them as globals, though it is often not necessary to do so.
 
-You can use them as a local variable, but generally it can be avoided and should be when no value is provided, for the Z-pod types, though Zpointer locals often make sense.
+You can use them as a local variable, but generally it can be avoided and should be when no value to using a Z-pod, though ultimately, it can be -- for the other ZeroTypes, though Zpointer locals sometimes make sense:
+
+```c++
+class MyItem : public ListItem { Zint desired; };
+class MyList : public LinkedList { .. };
+MyList myList;
+void oop( int desired ) {
+  Zp<Somewhere> ptr;
+  EACH(myList.first,MyItem,p) if ( p->value == desired ) ptr=p;
+  if ( ptr ) {
+   // do something
+  }
+  Zint x;  // x is 0
+  Zint y=5;  // you could just use an int... but no big deal if you do this, however it can be avoided.
+}
+```
 
 You generally want to use them in situations where data will be eventually converted to or from a string input.  I originally wrote them for use in OpenGL graphics applications, games and gaming servers (on Linux).  Using them protects against compiler inconsistencies across multiple platforms. Z-pods is designed to assure you have initialized values, and optimizers will eliminate any "double initialization" woes you may feel you'll face, in the case you wish to provide a default anyway.  
 
-Using Z-pods, you can type less, write more uniform implementations avoiding uninitialized class pointers, and you can even get out of having to create a constructor, for instance in the case where you wish to "pass down" a virtual constructor to a child class.
+Using Z-pods, you can type less, write more uniform implementations avoiding uninitialized class variables, and you can even get out of having to create a constructor, for instance in the case where you wish to "pass down" a virtual constructor to a child class.
 
 Due to the built-in string/data translation, easily store and retrieve state from a string in memory or file - operations that are common in applications that require reading and writing files and states.  It also makes std::string operability function more like Java string concatenations, and helps you avoid relying on << chaining (useful only in C++ and C#, not in Java, Javascript or PHP), and of course avoiding the whole printf() thing to format a string (unless you like this).  
 
@@ -251,7 +284,6 @@ class Nodes : public ZIndexed<Node> {
   return true; // deletion successful
  }
 };
-
 ```
 
 __To Do:__
