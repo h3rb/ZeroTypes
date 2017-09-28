@@ -254,10 +254,6 @@ class Nodes : public ZIndexed<Node> {
 
 ```
 
-* StringIndexed
-
-A variant of ZIndexed which provides an extensible fast-hashing content-based lookup string hashed table.  Both PHP and Javascript have this feature built in, but C++ does not.  You could use a Map<> which is one common solution, or you could use this method.
-
 __To Do:__
 
 Some of the code works on Linux. With a few changes, it will work on x64.  I'll get to this, or maybe you can by submitting a pull request on the github
