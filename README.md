@@ -176,7 +176,7 @@ void oop( int desired ) {
 
 You generally want to use them in situations where data will be eventually converted to or from a string input.  I originally wrote them for use in OpenGL graphics applications, games and gaming servers (on Linux).  Using them protects against compiler inconsistencies across multiple platforms. Z-pods is designed to assure you have initialized values, and optimizers will eliminate any "double initialization" woes you may feel you'll face, in the case you wish to provide a default anyway.  
 
-Using Z-pods, you can type less, write more uniform implementations avoiding uninitialized class variables, and you can even get out of having to create a constructor, for instance in the case where you wish to "pass down" a virtual constructor to a child class.
+Using Z-pods, you can type less, write more uniform implementations avoiding uninitialized class variables, and you can even get out of having to create a constructor, for instance in the case where you wish to "pass down" a virtual constructor to a child class. (See the section below "Why would I want to avoid a constructor in C++?")
 
 Due to the built-in string/data translation, easily store and retrieve state from a string in memory or file - operations that are common in applications that require reading and writing files and states.  It also makes std::string operability function more like Java string concatenations, and helps you avoid relying on << chaining (useful only in C++ and C#, not in Java, Javascript or PHP), and of course avoiding the whole printf() thing to format a string (unless you like this).  
 
@@ -294,6 +294,37 @@ class Nodes : public ZIndexed<Node> {
  }
 };
 ```
+
+Why would I want to avoid a constructor in C++?
+
+In C++ you sometimes need the features of other languages, but don't have them at your disposal.  
+
+In C++:
+* Constructors cannot be virtual.
+* Default constructors (constructors declared in the parent and not the child in the simplest form with no parameters) are special.
+* Constructors can call virtual functions, however the virtual functions are not called on the inherited function, as is the case in other languages like C# and eC.
+
+Consider:
+
+```
+class A {
+public: A() { Init(); }
+virtual void Init() { cout << 'A'; }
+}; 
+class B : A {
+public: virtual void Init() { cout << 'B'; }
+}; 
+class C : B {
+public: virtual void Init() { cout << 'C'; } }; 
+int main() { C c; }
+```
+
+The output of the above is "A" You might think "Well what if I had a couple of constructors, B():A(){} and C():B() {}" .. it would still print "A".  
+
+So the value of such a constructor is very limited.  It only really provides initialization for the class itself.
+Almost always this kind of "default constructor" cannot be used in tandem with a virtual function to provide the expected result (or desired result).  In dynamic languages, like C# or eC, you can use a virtual function in a constructor without much issue.
+
+Since it has little utility, it can be avoided altogether, keeping the code cleaner.
 
 __To Do:__
 
