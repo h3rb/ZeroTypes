@@ -76,6 +76,12 @@ class A {
  A() {
   temp.Instantiate();
  }
+ int *GetB() { return b; }
+ int *GetB2() { return b.pointer; }
+ int *GetTemp() { return temp; }
+ int *GetTemp2() { return temp.pointer; }
+ Zdis<int> *GetZdisTemp() { return temp.self(); }
+ Zp<int> *GetZpB() { return b.self(); }
  /* automatically destroys temp on destroy of A's instance but not b */
 };
 ```
