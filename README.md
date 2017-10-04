@@ -230,9 +230,11 @@ class Foo {
 };
 ```
 
-Zpointer's .pointer caveat
+Zpointer's .pointer caveat, and .self()
 
 Generally it's a good idea to use a Zpointer's .pointer if you absolutely need the pointer.  There are some edge cases where Zpointer's pointer to the wrapper class instance is accidentally substituted (at least in Visual Studio).  You'll know immediately if your code around there doesn't work. However, within itself, Zpointer works fine without the .pointer specificity.  The same can be said for Zdisposable.  One example of this is the ! operator is sometimes misconstrued.  My speculation is that when you have a Zpointer pointer pointer.  See below., where "m" and "preview" and "n" and "preview" are all Zpointers.
+
+If you do need the pointer to itself, use .self() -- this will return the pointer to the Zp<> structure, not its handled pointer.
 
 ```c++
 m->preview = n->preview;  // This always works if both preview properties are Zp<SameClass>
