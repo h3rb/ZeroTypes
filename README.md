@@ -1,3 +1,5 @@
+New! SFL version here: http://github.com/h3rb/ZeroTypesSFL
+
 ZeroTypes Library for Visual C++
 ---------------
 BSD LICENSE
@@ -7,8 +9,6 @@ See License.txt for details.
 ![alt tag](https://raw.githubusercontent.com/h3rb/ZeroTypes/master/zero.png)
 
 Part of the Lost Astronaut Studios Game Creation Framework in use by http://lostastronaut.com
-
-New! SFL version here: http://github.com/h3rb/ZeroTypesSFL
 
 __ZeroTypes Library__ is a personal helper library written for Visual C++ which performs rudimentary and important initialization of C-types (POD or plain-old data types) for Win32 and x64 systems.  It has been in development under the name ZeroTypes since 2007.  I wrote it to make my life easier.  It has, and now for the first time in 2017 it can make *your* life easier *too* -- AS SEEN ON https://zero.handmade.network/
 
