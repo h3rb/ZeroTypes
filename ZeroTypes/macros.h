@@ -89,13 +89,8 @@ template<typename T>
 struct matrix1d {
 public:
     matrix1d(size_t m=0) : m(m), vs(m) {}
-    T& operator ()(unsigned i) {
-        return vs[i + m];
-    }
-    void resize(size_t s) {
-        m=s;
-        vs.resize(m);
-    }
+    T& operator ()(unsigned i) { return vs[i]; }
+    void resize(size_t s) { m=s; vs.resize(m); }
 private:
     size_t m;
     std::vector<T> vs;
