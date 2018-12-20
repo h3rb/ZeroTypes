@@ -143,7 +143,7 @@ public:
 };
 ```
 
-Usually not as a parameter unless the case is a pointer or reference to something you are going to modify, but since they are POD-types, usually they are already wrapped in a class and won't be used directly as a parameter.  Or, they are POD-types are you will be return a non-pod type.
+Usually not as a parameter unless the case is a pointer or reference to something you are going to modify, but since they are POD-types, usually they are already wrapped in a class and won't be used directly as a parameter or return value.  Or, they are POD-types from which you will be returning to a non-pod type.  Whence, conversion occurs between the "POD" and "POD-non-POD" (mostly) automatically or (when needed) via an explicit, yet predictable and overloaded C-style cast, you may use C-style casts to do the conversion explicitly, saving you the trouble of static_cast codefluff.
 
 ```c++
 // Don't do this unless you really want to:
