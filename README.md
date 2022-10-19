@@ -1,4 +1,5 @@
-New! SFL version here: http://github.com/h3rb/ZeroTypesSFL
+New! Truly Single-File Version Here: https://github.com/retrofriendz/ZeroTypesHPP
+New! Simplified version here: http://github.com/h3rb/ZeroTypesSFL
 
 ZeroTypes Library for Visual C++
 ---------------
